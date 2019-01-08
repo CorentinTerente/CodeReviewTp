@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Animated } from 'react-native';
 
+const image = require('../../assets/NY1.jpg');
+
 export default class UpAndDownImage extends Component {
-  
   state = {
     marginTop: new Animated.Value(0),
   }
@@ -17,8 +18,8 @@ export default class UpAndDownImage extends Component {
       {
         toValue: 200,
         duration: 3000,
-      }
-    ).start(() => this.up())
+      },
+    ).start(() => this.up());
   }
 
   up() {
@@ -27,23 +28,21 @@ export default class UpAndDownImage extends Component {
       {
         toValue: 0,
         duration: 3000,
-      }
-    ).start(() => this.down())
+      },
+    ).start(() => this.down());
   }
 
   render() {
-
-    let { marginTop } = this.state;
+    const { marginTop } = this.state;
 
     return (
       <Animated.Image
-        source={require('../../assets/NY1.jpg')}
+        source={image}
         style={{
-          marginTop: marginTop, 
+          marginTop,
         }}
       >
       </Animated.Image>
     );
   }
 }
-
